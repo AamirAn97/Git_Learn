@@ -1,0 +1,8 @@
+This is file is generated using 'touch new.txt' command in git bash.
+Similarly we will create .gitignore using touch .gitignore command.
+This is a random tex file created to learn .gitignore
+I will ignore this file while doing staging and commit by creating .gitignore
+this file is again used to demonstrate direct commit skipping the staging part.
+the file which is previously tracked will only get commited directly.
+the files which are untracked will be ignored while commiting directly.
+change
