@@ -1,0 +1,87 @@
+=> touch <filename> : Creat a file  in current directory.
+=> nano <filename>: Open nano editor.
+=> open <filename> : Open a file in its default program.
+=> mv <filename> <filepath> : move a file.
+
+=> ls : lists all the the files in the current directory.
+=> pwd : present working directory
+=> cd name_of_directory_or_path: change directory
+=> cd.. : change directory to upper directory
+
+=> git status : used to display the state of the repository and staging area. It allows us to see the tracked, untracked files and changes.
+
+=> git config --global user.name "Name" : Sets your Git username for every repository while setting up git for first time on your computer.
+=> git config --global user.email "email" : Sets your Git user email for every repository while setting up git for first time on your computer.
+=> git config --list : Show all Git config properties throughout all of the variously scoped Git files.
+=> git config user.name : Show the set git Username.
+=> git config user.email : Show the set git Useremail.
+=> git config --global alias.<abriviation/alias_name> <original_command_name> : Sets a short abriviation for a git command
+eg: {=> git config --global alias.st status : Now we can use "git st" instead of "git status".
+     => git config --global alias.unstage 'restore --staged --' : Now we can use "git unstage <filename>" instead of "git restore --staged --<filename>".
+     => git config --global alias.last 'log -p -1' : Now we can use "git last" instead of "git log -p -1".
+	}
+
+=> git init : This command creates/initializes an empty Git repository - basically a .git directory with subdirectories for objects , refs/heads , refs/tags , and template files.
+
+=> git add : Tracks and Adds files to the Git staging area. This area contains a list of all the files you have recently changed. Your repository will be updated the next time you create a commit with your changes.
+=> git add --a : Adds 'all' the untracked or modified files to staging area.
+=> git add . : Adds 'all' the untracked or modified files to staging area.
+=> git add "fie_name" : Adds the given file name to staging area.
+
+=> git commit -m "message" : Commits all the staged files with a given message.
+=> git commit -a -m "message" : Commits all the modified files directly with a given message skipping the staging area. This command will stage all the tracked files and commit it. If the files are untracked then those files will not get commited.
+=> git commit --amend : used to amend previous commit.
+=> git rm --cached <filename> : Used to unstage the staged files. (Started untracking the file.)
+=> git restore --staged <filename> : Used to discard the changes(unstage) made to the file in working directory.
+=> git checkout -- <filename> : Restore the changes made to a file (unmodify) in working directory, matching it to the last commit.
+=> git checkout -f : Restore the changes made to all (uncommited)files (unmodify) in working directory, matching it to the last commit.
+=> git restore <filename> :  Helps to unstage or even discard uncommitted local changes.
+=> git checkout -b develop : Creates a new branch called develop and switches to it.
+=> git checkout master : Switches to Master branch.
+=> git checkout <branch_name> : Switches to the given branch name. 
+=> git branch : Lists all the branches.
+=> git branch -v : Lists all the branches with commit hash and commit message.
+=> git branch --merged : Lists all the already merged branches.
+=> git branch --no-merged : Lists all branches that are not already merged.
+=> (master) git merge <branch_name> : Merges the given branch to master branch.
+Deleting branch => git branch -d develop : Gives error if develop is not merged else delete the branch if merged.
+		=> git branch -D develop : Deletes the branch anyway either merged or not.
+
+=> rm -rf .git : (WARNING) Removes and deletes the local repository.
+
+=> git clone "url" : The git clone is a command-line utility which is used to make a local copy of a remote repository. It accesses the repository through a remote URL. Usually, the original repository is located on a remote server, often from a Git service like GitHub, Bitbucket, or GitLab.
+=> git remote add origin "url for repo" : Adds the remote url repo in origin.
+=> git remote set-url origin "url for repo" : Used to change the url of an existing remote repository.
+=> git remote : Show remote repo
+=> git remote -v : Show push and pull url for remote repo.
+=> git push -u origin master/main : Used to push the local master branch to origin/remote server.
+=> git push origin <branch_name> : Pushes my local branch to remote repo.
+=> git push origin <local_branch_name>:<remote_branch_name> : Pushes my local branch to remote repo.
+
+=> touch .gitignore : Creates .gitignore file in current directory. 
+Inside .gitignore :- 
+<filename.extension> : ignores that file, 
+<.extension> : ignores all files with given extension, 
+<dir or dir/> : ignores a directory named "dir" anywhere in the repository,
+</dir/> : ignores only the outter directory named "dir".
+<static/dir/> : ignores only the inner directory named "dir" inside the static directory. To ignore an internal dir or file paste full path inside .gitignore .
+
+=> git diff : It compares the staging area with the working directory, if the files are modified even after staging. It won't show anything if there are no modified files (since there are no modified files the staging area and working directory will be same).
+=> git diff --staged : Compares last commit with staging area. 
+=> git rm <filename> : Removes the given file from working directory and stages the changes.
+=> git mv <filename> <Renamed_filename> : Renames the given filename to new filename and stages the changes.
+
+=> git log : Git log is a utility tool to review and read a history of everything that happens to a repository. Generally, the git log is a record of commits.
+=> git log -p : Along with the records of the commits, this command also shows the changes made in that commit. This command is basically the combination of git log and git diff.
+=> git log -p -n : Same as above, this only shows the last "n" no. of commits.
+=> git log --stat : Show all the last commits with a brief summary of every commit.
+=> git log --pretty=oneline : Show all the last commits with a one line summary of every commit.
+=> git log --pretty=short : Show all the last commits with a short summary(author name and email) of every commit.
+=> git log --pretty=full : Show all the last commits with a full summary(author details and commiter details and message) of every commit.
+=> git log --pretty="%h -- %an" : 'h'- abreviated hash code, 'an'- author name, we can set the formats to show all the commits using this command with different placeholders (%H, %h, %an etc.) available on git scm log formats. 
+
+Filtering commits:
+=> git log --since=n.days : Show all the commits of last "n" days. 
+=> git log --since=n.weeks : Show all the commits of last "n" weeks.
+=> git log --since=n.months : Show all the commits of last "n" months.
+=> git log --since=n.years : Show all the commits of last "n" years.
